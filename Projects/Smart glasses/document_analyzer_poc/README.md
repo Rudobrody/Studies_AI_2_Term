@@ -1,0 +1,1 @@
+This project is a Proof of Concept for smart glasses that can capture an image of a documeent, extract the text, summarize it and read the summary aloud. 
