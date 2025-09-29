@@ -1,3 +1,4 @@
+import cv2
 
 class DocumentAnalyzer:
     """Pipeline for analyzing a document from image to speech."""
@@ -9,7 +10,18 @@ class DocumentAnalyzer:
 
     def _capture_image(self):
         """Simulates capturing an image from a camera"""
+        
         print("Simulating image capture from camera...")
+        video_capture = cv2.VideoCapture(0) # Conneect to the default camera - index 0
+
+        while True:
+            ret, frame = video_capture.read() # -> return_value, frame
+            cv2.imshow('New frame', frame)
+            key = cv2.waitKey(1) # Wait for one miliseecond for a pressed key
+            cv2.imwrite("from_camera.png", frame)
+            video_capture.release() # Closes video file or capturing device 
+            cv2.destroyAllWindows()
+            break
         dummy_path = "Repozytorium VSC\Projects\Smart glasses\document_analyzer_poc\dummy_text.png"
         return dummy_path
 
